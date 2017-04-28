@@ -50,4 +50,29 @@ public class DBConnector extends HttpServlet {
 		
 		out.close();
 	}
+	
+	public ResultSet getAccidents(){
+
+		String dbname = "jdbc:postgresql://localhost:5432/postgres";
+		String driver = "org.postgresql.Driver";
+		
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e1) {
+			e1.printStackTrace();
+		}
+		
+		try {
+			Connection con = DriverManager.getConnection(dbname, "postgres", "postgres");
+			Statement statement = con.createStatement();
+			
+			String sql = "select * from \"ait-project\".\"Accidents\"";
+			
+			ResultSet rs = statement.executeQuery(sql);
+			return rs;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}	
+	}
 }
