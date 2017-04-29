@@ -13,7 +13,7 @@
 		<%@page import="java.sql.ResultSet"%>		
 		<%
 		   DBConnector connector = new DBConnector();
-		   ResultSet data = connector.getAccidents();; 
+		   ResultSet data = connector.getAccidents();
 		%>
 		
 		<p>		
