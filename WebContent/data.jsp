@@ -10,10 +10,13 @@
 	</head>
 	<body>
 		<%@page import="ait.DBConnector"%>
-		<%@page import="java.sql.ResultSet"%>		
+		<%@page import="java.sql.ResultSet"%>
+		<%@page import="ait.Region"%>
+		<%@page import="java.util.ArrayList"%>		
 		<%
 		   DBConnector connector = new DBConnector();
 		   ResultSet data = connector.getAccidents();
+		   ArrayList<Region> regions = connector.getRegions();
 		%>
 		
 		<p>		
@@ -27,6 +30,15 @@
 						
 						out.print("<br />");
 					}
+				}
+			
+				for(Region region : regions){
+					out.print(region.getTitle());
+					for(Integer value : region.getData().values()){
+						out.print("|" + value);
+					}
+					
+					out.println();
 				}
 			%>
 		</p>	
