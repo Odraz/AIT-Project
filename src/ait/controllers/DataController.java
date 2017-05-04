@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.postgresql.util.PSQLException;
+
 import ait.models.Region;
 
 public class DataController extends Controller {	
@@ -39,6 +41,25 @@ public class DataController extends Controller {
 			}
 					
 			return regions;
+		} catch (PSQLException e) {
+			e.printStackTrace();
+			if(e.getMessage().contains("does not exist"))
+			{
+				ArrayList<Region> regions = new ArrayList<Region>();
+				ArrayList<Integer> data = new ArrayList<Integer>();
+				
+				for(int i = 2; i < 16; ++i){					
+					data.add(i);
+				}
+				
+				regions.add(new Region("IT_65", "Abruzzo", data));
+				regions.add(new Region("IT_77", "Basilicata", data));
+				regions.add(new Region("IT_78", "Calabria", data));
+				
+				return regions;
+			}else{
+				return null;
+			}			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;

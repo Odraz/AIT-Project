@@ -7,6 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import org.postgresql.util.PSQLException;
+
 import ait.models.Item;
 
 public class ItemController extends Controller {
@@ -39,14 +41,24 @@ public class ItemController extends Controller {
 		    }
 		    
 		    return items;
-	    } catch (SQLException e) {
+	    } catch (PSQLException e) {
+			e.printStackTrace();
+			if(e.getMessage().contains("does not exist"))
+			{
+				ArrayList<Item> items = new ArrayList<Item>();
+				
+				for(int i = 0; i < 4; i++){
+					items.add(new Item(i, "Test item " + i, "noimage.png",  100 * i, "Test description"));
+				}
+				
+				return items;
+			}else{
+				return null;
+			}			
+		} catch (SQLException e) {
 			e.printStackTrace();
 			
 			return null;
 		}		
-	}
-	
-	public static Item getItem(int id){
-		return null;
 	}
 }
