@@ -1,4 +1,4 @@
-package ait;
+package ait.models;
 
 import java.util.ArrayList;
 import java.util.HashMap;
