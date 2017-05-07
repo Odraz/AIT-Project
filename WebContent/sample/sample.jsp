@@ -5,6 +5,9 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 		<title>Sample page</title>
+				
+   		<script src="../ammap/ammap.js" type="text/javascript"></script>
+		<script src="../ammap/js/italyLow.js" type="text/javascript"></script>	    
 		
 		<link rel="stylesheet" href="../ammap/ammap.css" type="text/css">
 		<link href="css/main.css" rel="stylesheet">		
@@ -93,11 +96,7 @@
 			<span>Footer</span>
 		</footer>
 		
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    		   	
-   		
-   		<script src="../ammap/ammap.js" type="text/javascript"></script>
-		<script src="../ammap/js/italyLow.js" type="text/javascript"></script>
-	    
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    		   	   		
 	    <script src="js/main.js"></script>
 	</body>
 </html>

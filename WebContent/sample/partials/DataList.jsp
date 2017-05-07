@@ -12,7 +12,7 @@
 <%
 for(Region region : data){
 %>
-	<h2><%=region.getTitle()%></h2>
+	<h2><%=region.getId()%> <%=region.getTitle()%></h2>
 	<ul>|
 <%
 	for(Integer value : region.getData().values()){

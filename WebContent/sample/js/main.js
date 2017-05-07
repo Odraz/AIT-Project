@@ -42,58 +42,6 @@ function updateCart(){
 	$('#cart-total-price').html(totalPrice);	
 }
 
-/* Map */
-var map;
-
-AmCharts.ready(function() {
-    map = new AmCharts.AmMap();
-
-
-    map.colorSteps = 10;
-
-    var dataProvider = {
-        mapVar: AmCharts.maps.italyLow,
-		
-        areas: [{id:"VA", value: 100},
-        		{id:"SM", value: 100},
-        		{id:"FR-H", value: 100},
-        		{id:"MT", value: 100},
-        		{id:"IT_65", value: 100},
-        		{id:"IT-77", value: 100},
-        		{id:"IT-78", value: 100},
-        		{id:"IT-72", value: 100},
-        		{id:"IT-45", value: 100},
-        		{id:"IT-36", value: 100},
-        		{id:"IT-62", value: 100},
-        		{id:"IT-42", value: 100},
-        		{id:"IT-25", value: 100},
-        		{id:"IT-57", value: 100},
-        		{id:"IT-67", value: 100},
-        		{id:"IT-21", value: 100},
-        		{id:"IT-75", value: 100},
-        		{id:"IT-88", value: 100},
-        		{id:"IT-82", value: 100},
-        		{id:"IT-52", value: 100},
-        		{id:"IT-32", value: 100},
-        		{id:"IT-55", value: 100},
-        		{id:"IT-23", value: 100},
-        		{id:"IT-34", value: 100},]
-    };
-
-    map.areasSettings = {
-        autoZoom: true
-    };
-    map.dataProvider = dataProvider;
-
-    var valueLegend = new AmCharts.ValueLegend();
-    valueLegend.right = 10;
-    valueLegend.minValue = "little";
-    valueLegend.maxValue = "a lot!";
-    map.valueLegend = valueLegend;
-
-    map.write("mapdiv");
-});
-
 $(function() {	
 	updateCart();
 });

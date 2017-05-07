@@ -36,7 +36,7 @@ public class DataController extends Controller {
 					data.add(Integer.parseInt(rs.getString(i)));
 				}
 				
-				Region region = new Region(rs.getString(1), rs.getString(1), data);
+				Region region = new Region(rs.getString(17), rs.getString(1), data);
 				regions.add(region);
 			}
 					
