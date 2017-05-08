@@ -22,7 +22,7 @@ public class UserLogin extends HttpServlet {
 	        request.getSession().setAttribute("user", user);
 	        request.getSession().setAttribute("loginErrorMsg", null);
 	    } else {
-	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password.");	    	
+	    	request.getSession().setAttribute("loginErrorMsg", "Wrong e-mail or password");	    	
 	    }
 	    
 	    response.sendRedirect(request.getHeader("Referer"));

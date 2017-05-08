@@ -8,21 +8,7 @@
 <%
   ArrayList<Region> data = DataController.getData();
 %>
-	[{id: "home",
-	  en: "home",
-	  ru: "domov"},{
-	  id: "home1",
-	  en: "home1",
-	  ru: "domov1"},{
-	  id: "home2",
-	  en: "home2",
-	  ru: "domov2"},{
-	  id: "home",
-	  en: "home",
-	  ru: "domov"}]	
 	
-	data.getItem("home", session.getAttribute("lang"))
-
 <%
 for(Region region : data){
 %>
