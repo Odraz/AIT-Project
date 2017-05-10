@@ -12,6 +12,8 @@ public class UserLogout extends HttpServlet {
 	
 	 protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	  
         request.getSession().setAttribute("user", null);
+        request.getSession().setAttribute("loginErrorMsg", null);
+        request.getSession().setAttribute("registrationErrorMsg", null);
         response.sendRedirect(request.getHeader("Referer"));
     } 
 }

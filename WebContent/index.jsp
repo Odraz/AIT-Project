@@ -12,32 +12,11 @@
 		
 		<!-- CSS -->
 		<link rel="stylesheet" href="ammap/ammap.css" type="text/css">
-		<link href="draft/css/main.css" rel="stylesheet">		
+		<link href="css/main.css" rel="stylesheet">		
 	</head>
 	<body>
 		<header>
-			<div class="container">
-				<div id="header-title">
-					<a href="/AITProject">Road accidents</a>
-				</div>					
-				<button type="button" class="header-toggle collapsed" data-toggle="collapse" data-target="#user-menu" aria-expanded="false" aria-controls="user-menu">
-		            &#9776;
-	          	</button>
-	          	<div id="user-menu">							
-					<%
-						if(session.getAttribute("user") == null)
-						{ 
-					%>    	
-						<jsp:include page='partials/FormLogin.jsp' />
-					<% 
-						}else{
-					%>    
-						<jsp:include page='partials/UserMenu.jsp' />
-					<% 		
-						}
-					%>	
-				</div>
-			</div>
+			<jsp:include page='partials/Header.jsp' />
 		</header>
 		<main>
 			<div id="map">
@@ -82,13 +61,10 @@
 		</main>			
 		
 		<footer>
-			<div class="container">
-				<hr/>
-				<p>© 2017 Noah Cohen, Tomáš Pouzar</p>
-			</div>
+			<jsp:include page='partials/Footer.jsp' />			
 		</footer>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    		   	   		
-	    <script src="draft/js/main.js"></script>	
+	    <script src="js/main.js"></script>	
 	</body>
 </html>

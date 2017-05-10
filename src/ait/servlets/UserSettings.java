@@ -20,9 +20,10 @@ public class UserSettings extends HttpServlet {
 		    request.getParameter("lastname"),
 		    request.getParameter("address"));			    
 	    
-	    if (user != null) {
+		request.getSession().setAttribute("settingsErrorMsg", null);	        
+	    
+		if (user != null) {
 	        request.getSession().setAttribute("user", user);
-	        request.getSession().setAttribute("settingsErrorMsg", null);	        
 	    } else {
 	    	request.getSession().setAttribute("settingsErrorMsg", "Something went wrong");
 	    }
