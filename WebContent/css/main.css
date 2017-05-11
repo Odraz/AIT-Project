@@ -1,9 +1,17 @@
+@font-face {
+  font-family: 'Raleway';
+  src: url('font/raleway_thin-webfont.eot'); /* IE9 Compat Modes */
+  src: url('font/raleway_thin-webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('font/raleway_thin-webfont.woff') format('woff'), /* Pretty Modern Browsers */
+       url('font/raleway_thin-webfont.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('font/raleway_thin-webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
 /* GENERAL */
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    line-height: 1.42857143;
+    /*font-family: Arial, Helvetica, sans-serif;*/
+    font-family: Raleway !important;
+    font-size: 18px;
     margin: 0px;
 }
 
@@ -16,7 +24,6 @@ main{
 }
 
 .container {
-	display: table;
     margin-left: auto;
     margin-right: auto;
 }
@@ -31,9 +38,9 @@ hr {
 .row {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    display: table;
 }
 
+.col-6,
 .col-4{
 	-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -41,6 +48,17 @@ hr {
 	float: left;
 	padding-left: 15px;
 	padding-right: 15px;
+}
+
+.icon{
+	opacity: 0.7;
+}
+
+#user-menu:hover .icon,
+#user-menu:focus .icon,
+.icon:hover,
+.icon:focus{
+	opacity: 1;
 }
 
 /* HEADER */
@@ -53,8 +71,7 @@ header{
     letter-spacing: 0.5px;
     min-height: 65px;
  	position: fixed;
- 	right: 0;
-    text-transform: uppercase;
+ 	right: 0;    
 	top: 0;
     z-index: 1000;
     padding-left: 15px;
@@ -66,7 +83,7 @@ header{
 }
 
 #header-title,
-#header-user{	
+#header-user img{	
 	cursor: pointer;	
 	padding-top: 20px;
 }
@@ -85,14 +102,12 @@ header{
 }
 
 #header-form{	
+	text-transform: uppercase;
 	padding-top: 18px;
-}
-
-#header-user{
 	float: right;
 }
 
-#user-menu{
+#header-user{
 	float: right;
 }
 
@@ -113,12 +128,57 @@ header{
 	outline:none;	
 	font-size: 1.5em;	
 	color: #d1d1d9;
+	padding-bottom: 10px
 }
 
 .header-toggle:hover,
 .header-toggle:focus
 {	
 	color: #e8e8ec;
+}
+
+#user-menu{
+	float:right;
+	display: table;
+}
+
+#header-username{
+	padding-top: 20px;
+	padding-right: 10px;
+	float: left;
+}
+
+#user-menu:hover,
+#user-menu:focus
+{	
+	color: #e8e8ec;
+	cursor:pointer;
+}
+
+.menu-dropdown{
+	background: #42486A;
+    display: none;
+    position: absolute;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 65px;
+    margin-left: -180px;
+}
+
+.menu-dropdown a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #d1d1d9;
+}
+
+.menu-dropdown a:hover {
+	color: #e8e8ec;
+}
+
+#header-user > span{
+	padding-top: 0px;
 }
 
 /* FORM */
@@ -152,6 +212,12 @@ header{
 form input{
     border: 1px solid #bebebe;
     padding: 7px;
+}
+
+input[readonly] { 
+    background: #CCC; 
+    color: #333; 
+    border: 1px solid #666 
 }
 
 /* FORMS - BUTTONS*/
@@ -197,15 +263,27 @@ form input{
 
 
 /* SHOP */
-#shop{
+#data{
+	display: grid;
 	background: #F6F6F7;	
 	min-height: 100px;
-	padding-bottom: 50px;
 	padding-top: 30px;
+}
+
+
+
+#data h2{
+	text-align: center;
+}
+
+.data-desc{
+	text-align: center;
+	margin-bottom: 80px;
 }
 
 /* CONTENT */
 #content{
+	display: grid;
 	background: #fff;
 	padding-bottom: 50px;
 	padding-top: 50px;
@@ -222,10 +300,16 @@ footer{
 /* VIEWPORTS */
 @media (max-width: 991px)
 {
+	#data h1{
+		font-size: 2em;
+		padding-bottom: 20px;
+	}
+	
 	.container {
 	    width: 100%;
 	}
 	
+	.col-6,
 	.col-4 {
 	    width: 100%;	
 	}
@@ -234,20 +318,18 @@ footer{
 		display: block;
 	}
 	
-	#user-menu{
-		width: 100%;
-		display: none;
-		border-top: 1px red;
-	}
-	
 	#header-form{
 		float: left;
 		padding-bottom: 18px;
+		width: 100%;
+		display: none;
+		border-top: 1px red;
 	}	
 	
 	#header-form input{
 		width: 100%;
 		margin-bottom: 15px;
+		padding-right: 0px;
 	}
 	
 	#registration form input,
@@ -263,8 +345,17 @@ footer{
 
 @media (min-width: 992px)
 {
+	#data h1{
+		font-size: 2.5em;
+		padding-bottom: 20px;
+	}
+	
 	.container {
     	width: 970px;
+	}
+	
+	.col-6{
+	    width: 100%;	
 	}
 	
 	.col-4 {
@@ -275,15 +366,12 @@ footer{
 		display: block;
 	}
 	
-	#user-menu{
-		width: 100%;
-		display: none;
-		border-top: 1px red;
-	}
-	
 	#header-form{
 		float: right;
 		padding-bottom: 18px;
+		width: 100%;
+		display: none;
+		border-top: 1px red;
 	}	
 	
 	#registration form input,
@@ -297,10 +385,19 @@ footer{
 	}
 }
 
-@media (min-width: 1200px)
+@media (min-width: 1280px)
 {
+	#data h1{
+		font-size: 3em;
+		padding-bottom: 20px;
+	}
+
 	.container {
-	    width: 1170px;
+	    width: 1370px;
+	}
+	
+	.col-6 {
+	    width: 50%;	
 	}
 	
 	.col-4 {
@@ -311,14 +408,11 @@ footer{
 		display: none;
 	}
 	
-	#user-menu{
-		width: auto;
-		display: block !important;
-	}
-	
 	#header-form{
 		float: right;
 		padding-bottom: 0px;
+		width: auto;
+		display: block !important;
 	}
 	
 	#registration form input,

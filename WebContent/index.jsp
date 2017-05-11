@@ -4,17 +4,21 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>Road accidents in Italy - Draft</title>
+		<title>Road accidents in Italy</title>
 		
-		<!-- JavaScripts -->
-		<script src="ammap/ammap.js" type="text/javascript"></script>
-		<script src="ammap/js/italyLow.js" type="text/javascript"></script>	    
-		
+		<!-- Amcharts -->		
+		<script src="https://www.amcharts.com/lib/3/amcharts.js"></script>	
+		<script src="https://www.amcharts.com/lib/3/serial.js"></script>
+		<script src="https://www.amcharts.com/lib/3/pie.js"></script>				
+		<script src="https://www.amcharts.com/lib/3/radar.js"></script>
+		<script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+		<script src="https://www.amcharts.com/lib/3/themes/none.js"></script>	
+		<link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
 		<!-- CSS -->
 		<link rel="stylesheet" href="ammap/ammap.css" type="text/css">
 		<link href="css/main.css" rel="stylesheet">		
 	</head>
-	<body>
+	<body>		
 		<header>
 			<jsp:include page='partials/Header.jsp' />
 		</header>
@@ -22,21 +26,25 @@
 			<div id="map">
 				<jsp:include page='partials/Map.jsp' /> 
 			</div>
-			<div id="shop">
+			<div id="data">
 				<div class="container">
-					<h1 class="center">Download data</h1>				 
-				 	<%
-						if(session.getAttribute("user") == null)
-						{ 
-					%>    
-						<h3 class="center">Login first</h3>
-					<% 
-						}else{
-					%>    
-						<jsp:include page='partials/DataList.jsp' />
-					<% 		
-						}
-					%>	
+					<h1 class="center">15 years of accidents</h1>				 
+						<div class="row row-data-1">
+							<div class="col-6">								
+								<jsp:include page='partials/DataColumn.jsp' />								
+							</div>
+							<div class="col-6">
+								<jsp:include page='partials/DataLine.jsp' />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-6">
+								<jsp:include page='partials/DataRadar.jsp' />	
+							</div>
+							<div class="col-6">
+								<jsp:include page='partials/DataPie.jsp' />							
+							</div>
+						</div>
 				</div>
 			</div>
 			<div id="content">

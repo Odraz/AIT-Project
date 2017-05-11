@@ -20,7 +20,7 @@
 		</header>
 		<main>
 			<div class="container">				
-				<jsp:include page='partials/FormSettings.jsp' /> 
+				<jsp:include page='partials/FormRegistration.jsp' /> 
 			</div>
 		</main>			
 		

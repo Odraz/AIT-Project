@@ -7,6 +7,10 @@
   ArrayList<Region> data = DataController.getData();
 %>
 
+<!-- JavaScripts -->
+<script src="ammap/ammap.js" type="text/javascript"></script>
+<script src="ammap/js/italyLow.js" type="text/javascript"></script>	    
+
 <div id="mapdiv" style="width: 100%; height: 750px;"></div>
 
 <script>

@@ -14,6 +14,6 @@ public class UserLogout extends HttpServlet {
         request.getSession().setAttribute("user", null);
         request.getSession().setAttribute("loginErrorMsg", null);
         request.getSession().setAttribute("registrationErrorMsg", null);
-        response.sendRedirect(request.getHeader("Referer"));
+        response.sendRedirect("/AITProject");
     } 
 }

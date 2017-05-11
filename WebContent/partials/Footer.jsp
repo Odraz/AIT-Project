@@ -3,5 +3,5 @@
     
 <div class="container">
 	<hr/>
-	<p>© 2017 Noah Cohen, Tomáš Pouzar</p>
+	<p>© 2017 Noah Cohen, Tomas Pouzar</p>
 </div>
