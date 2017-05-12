@@ -17,7 +17,7 @@ public class Data extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	public void doGet (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<Region> data = DataController.getData();		    
+		String data = DataController.getDataDesc();		    
 		    
 	    if (data != null) {
 	        request.getSession().setAttribute("data", data);

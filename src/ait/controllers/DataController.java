@@ -12,7 +12,7 @@ import org.postgresql.util.PSQLException;
 import ait.models.Region;
 
 public class DataController extends Controller {	
-	public static ArrayList<Region> getData(){
+	static ArrayList<Region> getData(){
 		try {
 			Class.forName(driver);
 		} catch (ClassNotFoundException e1) {
@@ -32,7 +32,7 @@ public class DataController extends Controller {
 			while (rs.next()){				
 				data = new ArrayList<Integer>();
 				
-				for(int i = 2; i < 16; ++i){					
+				for(int i = 2; i < 17; ++i){					
 					data.add(Integer.parseInt(rs.getString(i)));
 				}
 				
@@ -48,7 +48,7 @@ public class DataController extends Controller {
 				ArrayList<Region> regions = new ArrayList<Region>();
 				ArrayList<Integer> data = new ArrayList<Integer>();
 				
-				for(int i = 2; i < 16; ++i){					
+				for(int i = 2; i < 17; ++i){					
 					data.add(i);
 				}
 				
@@ -64,5 +64,76 @@ public class DataController extends Controller {
 			e.printStackTrace();
 			return null;
 		}		
+	}
+	
+	static String printData(ArrayList<Region> data){
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for(int i = 0; i < data.size(); i++) {
+			sb.append("{id:\"" + data.get(i).getId() + "\",");
+			sb.append("title:\"" + data.get(i).getTitle() + "\",");
+			sb.append("highestYear:\"" + data.get(i).getHighest().getKey() + "\",");
+			sb.append("highestValue:" + data.get(i).getHighest().getValue() + ",");
+			sb.append("value:" + data.get(i).getTotal() + "}");
+			
+			sb.append((i + 1 < data.size()) ? "," : "");
+		}				
+		sb.append(']');
+		return sb.toString();
+	}
+	
+	static String printYears(int[] years){
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for(int i = 0; i < years.length; i++) {
+			sb.append("{date:\"" + (2001 + i) + "\",");
+			sb.append("value:" + years[i] + "}");
+			
+			sb.append((i + 1 < years.length) ? "," : "");
+		}				
+		sb.append(']');
+		return sb.toString();
+	}
+	
+	public static String getDataAsc(){
+		ArrayList<Region> data = getData();
+		data.sort((o1, o2) -> o1.getTotal() - o2.getTotal());
+		return printData(data);
+	}
+	
+	public static String getDataAsc(int year){
+		ArrayList<Region> data = getData();
+		data.sort((o1, o2) -> o1.getYear(year) - o2.getYear(year));
+		return printData(data);
+	}
+	
+	public static String getDataDesc(){
+		ArrayList<Region> data = getData();
+		data.sort((o1, o2) -> o2.getTotal() - o1.getTotal());
+		return printData(data);
+	}
+
+	public static String getDataDesc(int year){
+		ArrayList<Region> data = getData();
+		data.sort((o1, o2) -> o2.getYear(year) - o1.getYear(year));
+		return printData(data);
+	}
+	
+	public static String getYears(){
+		ArrayList<Region> data = getData();
+		int[] years = new int [15];
+		for(Region region : data){
+			for(int i = 0; i < 15; i++){
+				years[i] += region.getYear(2001 + i);
+			}
+		}
+		
+		return printYears(years);
+	}
+	
+	public static String getDataHighest(){
+		ArrayList<Region> data = getData();
+		data.sort((o1, o2) -> o2.getHighest().getValue() - o1.getHighest().getValue());
+		return printData(data);
 	}
 }

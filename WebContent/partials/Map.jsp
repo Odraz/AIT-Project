@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@page import="ait.controllers.DataController"%>
-<%@page import="java.util.ArrayList"%>		
-<%@page import="ait.models.Region"%>
-<%
-  ArrayList<Region> data = DataController.getData();
-%>
 
 <!-- JavaScripts -->
 <script src="ammap/ammap.js" type="text/javascript"></script>
@@ -14,15 +8,7 @@
 <div id="mapdiv" style="width: 100%; height: 750px;"></div>
 
 <script>
-	var map;
-	var data = [<% 
-	            for(int i = 0; i < data.size(); i++) {
-	            	%>{id:"<%= data.get(i).getId() %>",
-	            	   value:<%= data.get(i).getYear(2014)%>}
-	            	   
-	            	   <%= i + 1 < data.size() ? "," : "" %>
-	           	<% } %>
-	           	];
+	var map;	
 	
 	AmCharts.ready(function() {
 	    map = new AmCharts.AmMap();

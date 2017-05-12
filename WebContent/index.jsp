@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@page import="ait.controllers.DataController"%>
+<%@page import="java.util.ArrayList"%>		
+<%@page import="ait.models.Region"%>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -18,7 +21,17 @@
 		<link rel="stylesheet" href="ammap/ammap.css" type="text/css">
 		<link href="css/main.css" rel="stylesheet">		
 	</head>
-	<body>		
+	<body>	
+		<%
+		  String data = DataController.getDataDesc();
+		  String years = DataController.getYears();
+		%>
+		
+		<script>
+			var data = <%=data%>;
+			var years = <%=years%>;
+		</script>
+			
 		<header>
 			<jsp:include page='partials/Header.jsp' />
 		</header>
@@ -49,18 +62,18 @@
 			</div>
 			<div id="content">
 				<div class="container">
-					<h1 class="center">Lorem ipsum dolor sit amet.</h1>
+					<h1 class="center">Project SmashIT</h1>
 					<div class="row">
 						<div class="col-4">
-							<h2>Lorem ipsum</h2>
+							<h2>I.Stat</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
 						</div>
 						<div class="col-4">
-							<h2>Lorem ipsum</h2>
+							<h2>Advanced Internet Technologies</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
 						</div>
 						<div class="col-4">
-							<h2>Lorem ipsum</h2>
+							<h2>Authors</h2>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
 						</div>
 					</div>					

@@ -13,7 +13,7 @@
 	<div id="header-cart">		
 		<a>
 			<img class="icon" src="css/img/shop.svg" />
-			<span id="lblCartCount">3</span>
+			<span id="cart-counter"></span>
 		</a>
 	</div>
 	
@@ -23,20 +23,6 @@
 	</div>
 	
 	<div id="header-menu-cart" class="menu-dropdown">		
-		<div class="cart-item">
-			<div class="cart-item-link"><a href="#" >Bundle 1</a></div>
-			<div class="cart-item-img"><img class="icon" src="css/img/remove.svg" /></div>
-		</div>
-		<div class="cart-item">
-			<div class="cart-item-link"><a href="#" >Bundle 2</a></div>
-			<div class="cart-item-img"><img class="icon" src="css/img/remove.svg" /></div>
-		</div>
-		<div class="cart-item">
-			<div class="cart-item-link"><a href="#" >Bundle 300</a></div>
-			<div class="cart-item-img"><img class="icon" src="css/img/remove.svg" /></div>
-		</div>
-		<div class="cart-button">
-			<button class="btn btn-secondary">Download</button>
-		</div>
+		
 	</div>
 </div>

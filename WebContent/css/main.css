@@ -60,6 +60,10 @@ hr {
 	cursor: pointer;
 }
 
+.empty .icon{
+	opacity: 0.25;
+	cursor: default;
+}
 /* HEADER */
 header{
 	background: #42486A;
@@ -220,7 +224,7 @@ header{
 	text-align: center;
 }
 
-#lblCartCount {
+#cart-counter {
     border-radius: 20px;
     font-size: 15px;
     background: #ff0000;
