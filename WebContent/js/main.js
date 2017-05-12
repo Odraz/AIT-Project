@@ -34,8 +34,14 @@ $( "#header-hamburger" ).click(function() {
 	$( "#header-form" ).slideToggle("fast");
 });
 
-$( "#user-menu" ).click(function() {
+$( "#header-user" ).click(function() {
 	$( "#header-menu" ).slideToggle("fast");
+	$( "#header-menu-cart" ).slideUp("fast");
+});
+
+$( "#header-cart" ).click(function() {
+	$( "#header-menu-cart" ).slideToggle("fast");
+	$( "#header-menu" ).slideUp("fast");
 });
 
 $(function() {	

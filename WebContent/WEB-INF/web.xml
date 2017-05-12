@@ -36,12 +36,32 @@
   </servlet-mapping>
   
   <servlet>
+      <servlet-name>register</servlet-name>
+      <jsp-file>/registration.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+      <servlet-name>register</servlet-name>
+      <url-pattern>/register/*</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
    <servlet-name>UserSettings</servlet-name>
    <servlet-class>ait.servlets.UserSettings</servlet-class>
   </servlet>
 	
   <servlet-mapping>
    <servlet-name>UserSettings</servlet-name>
-   <url-pattern>/settings</url-pattern>
+   <url-pattern>/usersettings</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+   <servlet-name>settings</servlet-name>
+   <jsp-file>/settings.jsp</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+   <servlet-name>settings</servlet-name>
+   <url-pattern>/settings/*</url-pattern>
   </servlet-mapping>
 </web-app>

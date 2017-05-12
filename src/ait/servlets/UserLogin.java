@@ -30,7 +30,7 @@ public class UserLogin extends HttpServlet {
 		    
 		    response.sendRedirect(request.getHeader("Referer"));
 		}else if(request.getParameter("btn-sign-up") != null){
-			response.sendRedirect("registration.jsp");
+			response.sendRedirect("register");
 		}
     } 
 }

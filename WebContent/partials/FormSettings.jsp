@@ -12,7 +12,7 @@
 		}
 	%>	
     
-	<form id="form-registration" action="settings" method="post">		
+	<form id="form-registration" action="usersettings" method="post">		
 	    <div class="form-item">
 	   		<input id="username" type="text" name="username" value="${user.username}" readonly>
 		</div>
