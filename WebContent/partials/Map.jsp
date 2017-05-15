@@ -6,6 +6,12 @@
 <script src="ammap/js/italyLow.js" type="text/javascript"></script>	    
 
 <div id="mapdiv" style="width: 100%; height: 750px;"></div>
+<div id="range-slider">
+	<h1 id="range">2015</h1>
+	<span>2001</span>
+	<input type="range" min="2001" max="2015" value="2015" step="1" onchange="sliderChangeValue(this.value)" />
+	<span>2015</span>		
+</div>
 
 <script>
 	var map;	

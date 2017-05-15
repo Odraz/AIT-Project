@@ -318,6 +318,12 @@ input[readonly] {
 	font-weight: bold;
 }
 
+.btn.disabled,
+.btn.disabled:hover{
+	background: #c0c0c0;
+	cursor: default;
+}
+
 /* SHOP */
 #data{
 	display: grid;
@@ -343,6 +349,21 @@ input[readonly] {
 	padding-top: 50px;
 }
 
+/* MAP */
+#range-slider{
+	padding-bottom: 10px;
+	background-color: #717CB7;
+	color: white;
+	text-align: center;	
+}
+
+#range-slider input{
+	width: 50%;
+}
+
+#range{
+	margin-top: 0px;
+}
 /* FOOTER */
 footer{
 	background: #fff;

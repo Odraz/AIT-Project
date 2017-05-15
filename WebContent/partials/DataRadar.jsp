@@ -14,7 +14,7 @@
 var chart = AmCharts.makeChart( "radardiv", {
   "type": "radar",
   "theme": "none",
-  "dataProvider": data.slice(0,6),
+  "dataProvider": dataTotal.slice(9,14),
   "valueAxes": [ {
     "axisTitleOffset": 20,
     "minimum": 0,
@@ -22,10 +22,10 @@ var chart = AmCharts.makeChart( "radardiv", {
   } ],
   "startDuration": 2,
   "graphs": [ {
-    "balloonText": "[[value]] in [[highestYear]]",
+    "balloonText": "[[value]]",
     "bullet": "round",
     "lineThickness": 2,
-    "valueField": "highestValue"
+    "valueField": "value"
   } ],
   "categoryField": "title",
   "export": {
@@ -37,6 +37,6 @@ var chart = AmCharts.makeChart( "radardiv", {
 <!-- HTML -->
 <div id="radardiv"></div>
 <div class="data-desc">
-	<h2>Best score</h2>
-	<button id="btn-item-2>" class="btn btn-primary <%if(session.getAttribute("user") == null){%>disabled<%}%>" onclick="addToCart(2, 'Radar graph')">Add to cart</button>
+	<h2>5 safest</h2>
+	<button id="btn-item-2>" class="btn btn-primary <%if(session.getAttribute("user") == null){%>disabled<%}%>" <%if(session.getAttribute("user") != null){%>onclick="addToCart(2, 'radardiv', 'Radar graph')"<%}else{%>disabled title="Login first"<%}%>>Add to cart</button>
 </div>

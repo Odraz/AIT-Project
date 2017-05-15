@@ -23,18 +23,22 @@
 	</head>
 	<body>	
 		<%
-		  String data = DataController.getDataDesc();
+		  String dataTotal = DataController.getDataDesc();
+		  String data = DataController.getDataByYears();
 		  String years = DataController.getYears();
 		%>
 		
 		<script>
-			var data = <%=data%>;
+			var _data = <%=data%>;
+			var data = _data[14];
+			var dataTotal = <%=dataTotal%>;
 			var years = <%=years%>;
 		</script>
 			
 		<header>
 			<jsp:include page='partials/Header.jsp' />
 		</header>
+		
 		<main>
 			<div id="map">
 				<jsp:include page='partials/Map.jsp' /> 
@@ -66,15 +70,15 @@
 					<div class="row">
 						<div class="col-4">
 							<h2>I.Stat</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
+							<p>All data are taken from the warehouse of statistics, I.Stat, currently produced by the Italian National Institute of Statistics. Data represents the number of vehicles involved in road accidents accros the years from 2001 until 2015 incl.</p>
 						</div>
 						<div class="col-4">
 							<h2>Advanced Internet Technologies</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
+							<p>This website was created thanks to the teaching and guidance of professors Claus Pahl and Guohui Xiao at Free University of Bozen-Bolzano during the course Advanced Internet Technologies.</p>
 						</div>
 						<div class="col-4">
 							<h2>Authors</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse quam odio, laoreet auctor lectus quis, vestibulum tristique nisl. Pellentesque lobortis urna erat, sit amet sagittis lectus bibendum non. Vivamus ultricies metus mauris, in dignissim est pretium non.</p>
+							<p>All has been developed by two master students of Computer Science. Noah Cohen, data engineering student from Michigan (USA), currently stuyding at Free University of Bozen-Bolzano and Tomas Pouzar, student of applied informatics from Brno (The Czech Republic), studying in Bolzano for 1 semester thanks to Eramus+ programme.</p>
 						</div>
 					</div>					
 				</div> 
@@ -87,5 +91,6 @@
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    		   	   		
 	    <script src="js/main.js"></script>	
+	    <script src="js/export.js"></script>	
 	</body>
 </html>

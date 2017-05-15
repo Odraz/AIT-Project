@@ -16,7 +16,7 @@
 		    <input id="password-login" type="password" placeholder="Password" name="password" required>
 					
 			<button class="btn btn-primary" type="submit" name="btn-sign-in" value="SignIn">Sign in</button>
-			<button class="btn btn-secondary" type="submit" name="btn-sign-up" value="SignUp">Sign up</button>
+			<button class="btn btn-secondary" type="submit" name="btn-sign-up" value="SignUp" formnovalidate>Sign up</button>
 		</form>
 	</div>
 </div>

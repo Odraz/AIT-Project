@@ -1,10 +1,11 @@
 /* Shopping Cart */
 var shoppingCart = [];
 
-function addToCart(id, name){
+function addToCart(id, idcss, name){
 	var item = {};
 
 	item.Id = id;
+	item.IdCss = idcss;
 	item.Name = name;
     shoppingCart.push(item);
 
@@ -19,7 +20,7 @@ function removeFromCart(id){
 
 function appendDownloadButton(element){
 	element.append("<div class=\"cart-button\">\
-						<button class=\"btn btn-secondary\">Download</button>\
+						<button class=\"btn btn-secondary\" onclick=\"exportReport(shoppingCart)\">Download PDF</button>\
 					</div>");
 }
 
@@ -65,6 +66,15 @@ $( "#header-cart" ).click(function() {
 	}
 });
 
+function sliderChangeValue(newValue)
+{
+	$('#range').html(newValue)
+	map.dataProvider = {
+        mapVar: AmCharts.maps.italyLow,			
+        areas: _data[newValue - 2001]
+    };
+    map.validateData();
+}
 
 $(function() {	
 	updateCart();

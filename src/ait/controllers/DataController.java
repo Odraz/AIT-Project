@@ -66,7 +66,7 @@ public class DataController extends Controller {
 		}		
 	}
 	
-	static String printData(ArrayList<Region> data){
+	static String printData(ArrayList<Region> data, int year){
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
 		for(int i = 0; i < data.size(); i++) {
@@ -74,7 +74,7 @@ public class DataController extends Controller {
 			sb.append("title:\"" + data.get(i).getTitle() + "\",");
 			sb.append("highestYear:\"" + data.get(i).getHighest().getKey() + "\",");
 			sb.append("highestValue:" + data.get(i).getHighest().getValue() + ",");
-			sb.append("value:" + data.get(i).getTotal() + "}");
+			sb.append("value:" + (year == 0 ? data.get(i).getTotal() : data.get(i).getYear(year)) + "}");
 			
 			sb.append((i + 1 < data.size()) ? "," : "");
 		}				
@@ -98,25 +98,25 @@ public class DataController extends Controller {
 	public static String getDataAsc(){
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o1.getTotal() - o2.getTotal());
-		return printData(data);
+		return printData(data, 0);
 	}
 	
 	public static String getDataAsc(int year){
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o1.getYear(year) - o2.getYear(year));
-		return printData(data);
+		return printData(data, 0);
 	}
 	
 	public static String getDataDesc(){
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o2.getTotal() - o1.getTotal());
-		return printData(data);
+		return printData(data, 0);
 	}
 
 	public static String getDataDesc(int year){
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o2.getYear(year) - o1.getYear(year));
-		return printData(data);
+		return printData(data, 0);
 	}
 	
 	public static String getYears(){
@@ -131,9 +131,22 @@ public class DataController extends Controller {
 		return printYears(years);
 	}
 	
+	public static String getDataByYears(){
+		ArrayList<Region> data = getData();
+		StringBuilder sb = new StringBuilder();
+		sb.append("[");
+		for(int i = 0; i < 15; i++){
+			sb.append(printData(data, 2001 + i));
+			sb.append((i + 1 < 15) ? "," : "");
+		}
+		
+		sb.append(']');
+		return sb.toString();
+	}
+	
 	public static String getDataHighest(){
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o2.getHighest().getValue() - o1.getHighest().getValue());
-		return printData(data);
+		return printData(data, 0);
 	}
 }

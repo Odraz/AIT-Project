@@ -23,6 +23,7 @@ public class UserSettings extends HttpServlet {
 		request.getSession().setAttribute("settingsErrorMsg", null);	        
 	    
 		if (user != null) {
+			request.getSession().setAttribute("settingsErrorMsg", "Changes saved");
 	        request.getSession().setAttribute("user", user);
 	    } else {
 	    	request.getSession().setAttribute("settingsErrorMsg", "Something went wrong");
