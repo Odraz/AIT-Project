@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.postgresql.util.PSQLException;
 
@@ -148,5 +149,20 @@ public class DataController extends Controller {
 		ArrayList<Region> data = getData();
 		data.sort((o1, o2) -> o2.getHighest().getValue() - o1.getHighest().getValue());
 		return printData(data, 0);
+	}
+	
+	public static String getCSV(){
+		ArrayList<Region> regions = getData();
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(Region region : regions) {
+			sb.append(region.getTitle());
+			region.getData().forEach((k,v) -> sb.append(";" + v));				
+			
+			sb.append("\\n");
+		}				
+	
+		return sb.toString();
 	}
 }

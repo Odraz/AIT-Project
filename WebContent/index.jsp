@@ -26,6 +26,7 @@
 		  String dataTotal = DataController.getDataDesc();
 		  String data = DataController.getDataByYears();
 		  String years = DataController.getYears();
+		  String csv = DataController.getCSV();
 		%>
 		
 		<script>
@@ -33,6 +34,7 @@
 			var data = _data[14];
 			var dataTotal = <%=dataTotal%>;
 			var years = <%=years%>;
+			var csv = '<%=csv%>';
 		</script>
 			
 		<header>
@@ -61,7 +63,7 @@
 							<div class="col-6">
 								<jsp:include page='partials/DataPie.jsp' />							
 							</div>
-						</div>
+						</div>											
 				</div>
 			</div>
 			<div id="content">
@@ -71,6 +73,7 @@
 						<div class="col-4">
 							<h2>I.Stat</h2>
 							<p>All data are taken from the warehouse of statistics, I.Stat, currently produced by the Italian National Institute of Statistics. Data represents the number of vehicles involved in road accidents accros the years from 2001 until 2015 incl.</p>
+							<button class="btn btn-secondary" onclick="downloadCSV()">Download CSV</button>
 						</div>
 						<div class="col-4">
 							<h2>Advanced Internet Technologies</h2>

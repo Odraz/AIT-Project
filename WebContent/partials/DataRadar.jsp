@@ -38,5 +38,5 @@ var chart = AmCharts.makeChart( "radardiv", {
 <div id="radardiv"></div>
 <div class="data-desc">
 	<h2>5 safest</h2>
-	<button id="btn-item-2>" class="btn btn-primary <%if(session.getAttribute("user") == null){%>disabled<%}%>" <%if(session.getAttribute("user") != null){%>onclick="addToCart(2, 'radardiv', 'Radar graph')"<%}else{%>disabled title="Login first"<%}%>>Add to cart</button>
+	<button id="btn-item-2" class="btn btn-primary btn-item <%if(session.getAttribute("user") == null){%>disabled<%}%>" <%if(session.getAttribute("user") != null){%>onclick="addToCart(2, 'radardiv', 'Radar graph')"<%}else{%>disabled title="Login first"<%}%>>Add to cart</button>
 </div>

@@ -19,7 +19,7 @@
 	
 	<div id="header-menu" class="menu-dropdown">
 		<a class="menu-item" href="settings" >Settings</a>
-		<a class="menu-item" href="logout" >Sign out</a>	
+		<a class="menu-item" href="logout" onclick="logout()">Sign out</a>	
 	</div>
 	
 	<div id="header-menu-cart" class="menu-dropdown">		

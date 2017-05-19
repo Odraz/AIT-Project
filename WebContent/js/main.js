@@ -1,6 +1,10 @@
 /* Shopping Cart */
 var shoppingCart = [];
 
+if(sessionStorage.shoppingCart != undefined && sessionStorage.shoppingCart != "[]"){
+	shoppingCart = JSON.parse(sessionStorage.getItem("shoppingCart"));
+}
+
 function addToCart(id, idcss, name){
 	var item = {};
 
@@ -13,8 +17,9 @@ function addToCart(id, idcss, name){
 }
 
 function removeFromCart(id){
-    shoppingCart.splice(id, 1);
-    
+	var item = shoppingCart[id];
+    shoppingCart.splice(id, 1);    
+	
     updateCart();
 }
 
@@ -27,11 +32,11 @@ function appendDownloadButton(element){
 function updateCart(){	
 	if(shoppingCart.length == 0){
 		$('#cart-counter').hide();
-		!$( "#header-cart" ).addClass("empty");
+		$( "#header-cart" ).addClass("empty");
 		$( "#header-menu-cart" ).slideUp("fast");
 	}else{
 		$('#cart-counter').show();
-		!$( "#header-cart" ).removeClass("empty");
+		$( "#header-cart" ).removeClass("empty");
 	}
 	
 	$('#header-menu-cart').html('');	
@@ -47,7 +52,29 @@ function updateCart(){
 	
 	appendDownloadButton($("#header-menu-cart"));
 	
-	$('#cart-counter').html(shoppingCart.length);	
+	$('#cart-counter').html(shoppingCart.length);
+	
+	sessionStorage.setItem("shoppingCart", JSON.stringify(shoppingCart));
+	
+	if($("#user-menu").is(":visible")){
+		updateButtons();
+	}
+}
+
+function updateButtons(){
+	for(var i = 0; i < 4; i++){
+		if(shoppingCart.filter(function(item) { return item.Id == i }).length > 0){
+			$('#btn-item-' + i).addClass('disabled');
+			$('#btn-item-' + i).attr("disabled", true);
+			$('#btn-item-' + i).attr("title", "In cart");
+			$('#btn-item-' + i).html("In cart");
+		}else{
+			$('#btn-item-' + i).removeClass("disabled");
+			$('#btn-item-' + i).attr("disabled", false);
+			$('#btn-item-' + i).attr("title", "Add to cart");
+			$('#btn-item-' + i).html("Add to cart");
+		}
+	}
 }
 
 $( "#header-hamburger" ).click(function() {
@@ -74,6 +101,22 @@ function sliderChangeValue(newValue)
         areas: _data[newValue - 2001]
     };
     map.validateData();
+}
+
+function logout(){
+	sessionStorage.setItem("shoppingCart", "[]");
+}
+
+function downloadCSV() { 
+    filename = 'road_accidents.csv';
+    csv = 'data:text/csv;charset=utf-8,' + csv;
+    
+    var data = encodeURI(csv);
+
+    link = document.createElement('a');
+    link.setAttribute('href', data);
+    link.setAttribute('download', filename);
+    link.click();
 }
 
 $(function() {	

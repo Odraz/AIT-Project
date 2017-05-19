@@ -30,5 +30,5 @@ var chart = AmCharts.makeChart( "piediv", {
 <div id="piediv"></div>
 <div class="data-desc">
 	<h2>Summary</h2>
-	<button id="btn-item-3>" class="btn btn-primary <%if(session.getAttribute("user") == null){%>disabled<%}%>" <%if(session.getAttribute("user") != null){%>onclick="addToCart(3, 'piediv', 'Pie graph')"<%}else{%>disabled title="Login first"<%}%>>Add to cart</button>
+	<button id="btn-item-3" class="btn btn-primary btn-item <%if(session.getAttribute("user") == null){%>disabled<%}%>" <%if(session.getAttribute("user") != null){%>onclick="addToCart(3, 'piediv', 'Pie graph')"<%}else{%>disabled title="Login first"<%}%>>Add to cart</button>
 </div>

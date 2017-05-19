@@ -2,7 +2,7 @@ function exportReport(shoppingCart) {
 
   // So that we know export was started
   console.log("Starting export...");
-
+  $( "#header-menu-cart" ).slideUp("fast");
   // Define IDs of the charts we want to include in the report
   var ids = shoppingCart.map(function(item) {return item.IdCss;});
 

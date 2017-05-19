@@ -14,24 +14,57 @@
     
 	<form id="form-registration" action="usersettings" method="post">		
 	    <div class="form-item">
-	   		<input id="username" type="text" name="username" value="${user.username}" readonly>
+	    	<div class="form-label">
+	    		<label>Username</label>
+	    	</div>
+	    	<div class="form-input">
+	   			<input id="username" type="text" name="username" value="${user.username}" readonly>
+   			</div>
 		</div>
 		
 		<div class="form-item">
-			<input id="email" type="email" name="email" value="${user.email}" readonly>
+			<div class="form-label">
+				<label>E-mail</label>
+			</div>
+			<div class="form-input">
+				<input id="email" type="email" name="email" value="${user.email}" readonly>
+			</div>
 		</div>
 		
 		<div class="form-item">
-			<input id="firstname" type="text" name="firstname" placeholder="First name" value="${user.firstname}" required>
+			<div class="form-label">
+				<label>First name</label>
+			</div>
+			<div class="form-input">
+				<input id="firstname" type="text" name="firstname" placeholder="First name" value="${user.firstname}" required>
+			</div>
 		</div>
 		
 		<div class="form-item">	
-			<input id="lastname" type="text" name="lastname" placeholder="Last name" value="${user.lastname}" required>
+			<div class="form-label">
+				<label>Last name</label>
+			</div>
+			<div class="form-input">
+				<input id="lastname" type="text" name="lastname" placeholder="Last name" value="${user.lastname}" required>
+			</div>
 		</div>
 		
 		<div class="form-item">
-			<input id="address" type="text" name="address" placeholder="Address" value="${user.address}" required>
+			<div class="form-label">
+				<label>Address</label>
+			</div>
+			<div class="form-input">
+				<input id="address" type="text" name="address" placeholder="Address" value="${user.address}" required>
+			</div>
 		</div>
-		<button class="btn btn-big btn-secondary" type="submit">Save</button>
+		<div class="form-item">
+			<div class="form-label">
+				<label></label>
+			</div>
+			<div class="form-input">
+				<button class="btn btn-big btn-secondary" type="submit">Save</button>
+			</div>
+		</div>
+		
 	</form>
 </div>
