@@ -31,6 +31,7 @@ public class UserRegistration extends HttpServlet {
 		        response.sendRedirect("/AITProject");
 		    } else {
 		    	request.getSession().setAttribute("registrationErrorMsg", "Something went wrong");
+		    	response.sendRedirect(request.getHeader("Referer"));
 		    }		    
 		}catch(DuplicateUsernameException ex){
 			request.getSession().setAttribute("registrationErrorMsg", ex.getMessage());

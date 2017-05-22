@@ -1,7 +1,6 @@
 function exportReport(shoppingCart) {
-
-  // So that we know export was started
   console.log("Starting export...");
+  
   $( "#header-menu-cart" ).slideUp("fast");
   // Define IDs of the charts we want to include in the report
   var ids = shoppingCart.map(function(item) {return item.IdCss;});
@@ -23,15 +22,12 @@ function exportReport(shoppingCart) {
       chart["export"].capture({}, function() {
         this.toJPG({}, function(data) {
 
-          // Save chart data into chart object itself
           this.setup.chart.exportedImage = data;
 
-          // Reduce the remaining counter
           charts_remaining--;
 
           // Check if we got all of the charts
           if (charts_remaining == 0) {
-            // Yup, we got all of them
             // Let's proceed to putting PDF together
             generatePDF();
           }
@@ -63,7 +59,6 @@ function exportReport(shoppingCart) {
     }   
 
     // Trigger the generation and download of the PDF
-    // We will use the first chart as a base to execute Export on
     chart["export"].toPDF(layout, function(data) {
       this.download(data, "application/pdf", "amCharts.pdf");
       console.log("Done!");
